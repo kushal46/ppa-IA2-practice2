@@ -1,1 +1,118 @@
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x83c: file p5original.c, line 28.
+(gdb) r
+Starting program: /home/runner/ppa-IA2-practice2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p5original.c:28
+28    a=input();
+(gdb) n
+Enter the number: 
+8
+29    b=input();
+(gdb) n
+Enter the number: 
+16
+30    g=gcd(a,b);
+(gdb) s
+gcd (a=8, b=16) at p5original.c:11
+11    int gcd = 1;
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) n
+14        if(a%1==0 && b%i==0)
+(gdb) n
+16          gcd = i;
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) p i
+$1 = 2
+(gdb) p gcd
+$2 = 2
+(gdb) n
+14        if(a%1==0 && b%i==0)
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) n
+14        if(a%1==0 && b%i==0)
+(gdb) p i
+$3 = 4
+(gdb) n
+16          gcd = i;
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) n
+14        if(a%1==0 && b%i==0)
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) n
+14        if(a%1==0 && b%i==0)
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) p gcd
+$4 = 4
+(gdb) n
+14        if(a%1==0 && b%i==0)
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) p i
+$5 = 7
+(gdb) n
+14        if(a%1==0 && b%i==0)
+(gdb) n
+16          gcd = i;
+(gdb) p i
+$6 = 8
+(gdb) gcd
+Undefined command: "gcd".  Try "help".
+(gdb) p gcd
+$7 = 4
+(gdb) n
+12    for(int i=2; i<=a && i<=b;i++)
+(gdb) p gcd
+$8 = 8
+(gdb) n
+19    return gcd;
+(gdb) n
+20  }
+(gdb) n
+main () at p5original.c:31
+31    output(a,b,g);
+(gdb) s
+output (a=8, b=16, gcd=8) at p5original.c:24
+24    printf("The G.C.D of %d and %d is %d\n",a,b,gcd);
+(gdb) n
+The G.C.D of 8 and 16 is 8
+25  }
+(gdb) n
+main () at p5original.c:32
+32    return 0;
+(gdb) n
+33  }(gdb) n
+__libc_start_main (main=0x564dce200834 <main>, argc=1, argv=0x7ffecde249f8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffecde249e8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 245] will be killed.
+
+Quit anyway? (y or n) y
+ 

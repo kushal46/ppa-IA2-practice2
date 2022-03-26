@@ -1,1 +1,113 @@
+gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8f7: file p4original.c, line 48.
+(gdb) r
+Starting program: /home/runner/ppa-IA2-practice2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p4original.c:48
+48  { int n,c,sum=0;
+(gdb) n
+49    int a[n];
+(gdb) n
+50    n= input_array_size();
+(gdb) s
+input_array_size () at p4original.c:3
+3   { 
+(gdb) n
+5     printf("Enter the size of the array: \n");
+(gdb) n
+Enter the size of the array: 
+6     scanf("%d",&n);
+(gdb) n
+4
+7     return n;
+(gdb) n
+8   }
+(gdb) n
+main () at p4original.c:51
+51    input_array(n,a);
+(gdb) s
+input_array (n=4, a=0x7ffd2f81e500) at p4original.c:11
+11    printf("Enter the numbers: \n");
+(gdb) n
+Enter the numbers: 
+12    for(int i=0;i<n;i++)
+(gdb) n
+14    scanf("%d",&a[i]);
+(gdb) n
+4
+12    for(int i=0;i<n;i++)
+(gdb) n
+14    scanf("%d",&a[i]);
+(gdb) n
+8
+12    for(int i=0;i<n;i++)
+(gdb) n
+14    scanf("%d",&a[i]);
+(gdb) n
+
+5
+12    for(int i=0;i<n;i++)
+(gdb) n
+14    scanf("%d",&a[i]);
+(gdb) n
+2
+12    for(int i=0;i<n;i++)
+(gdb) n
+16  }
+(gdb) n
+main () at p4original.c:52
+52    c = is_composite(n);
+(gdb) s
+is_composite (n=4) at p4original.c:19
+19    int c=0;
+(gdb) n
+20    for(int i=2; i<=n/2 ;i++)
+(gdb) n
+22        if(n%i == 0)
+(gdb) n
+23        {  c=1;
+(gdb) n
+24        break;
+(gdb) n
+27    return c;
+(gdb) n
+28  }
+(gdb) n
+main () at p4original.c:53
+53    sum = sum_composite_numbers(n,a);
+(gdb) n
+54    out_put(sum);
+(gdb) s
+out_put (sum=12) at p4original.c:44
+44    printf("the sum of the composite numbers is %d\n",sum);
+(gdb) n
+the sum of the composite numbers is 12
+45  }
+(gdb) n
+main () at p4original.c:55
+55    return 0;
+(gdb) n
+56  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 3542] will be killed.
+
+Quit anyway? (y or n) y
+ 

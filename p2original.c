@@ -9,25 +9,18 @@ int input_side()
 }
 int check_scalene(int a,int b,int c)
 {
-  if (a==b || a==c)
-  return 0;
-  else if (b==a || b==c)
-  return 1;
-  else if(c==a || c==b)
-  return 2;
-  else
-  return 3;
-}
+  int is;
+  if(a!=b && b!= c && c!=a)
+  {
+    return is;
+  }
+  }
 void output(int a,int b,int c,int isscalene)
 {
-   if(isscalene == 0)
-  printf("triangle is not scalene");
-  else if(isscalene == 1)
-  printf("triangle is not scalene");
-  else if(isscalene == 2)
-  printf("triangle is not scalene");
-  else
+   if(a!=b && b!= c && c!=a)
   printf("triangle is scalene");
+  else
+  printf("triangle is not scalene");
 }
 int main()
 {

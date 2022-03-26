@@ -1,1 +1,72 @@
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x822: file p1original.c, line 19.
+(gdb) r
+Starting program: /home/runner/ppa-IA2-practice2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1original.c:19
+19  {
+(gdb) n
+21    input(&b,&h);
+(gdb) s
+input (base=0x7fff79412dcc, height=0x7fff79412dd0) at p1original.c:5
+5     printf("Enter the length of base and height\n");
+(gdb) n
+Enter the length of base and height
+6     scanf("%f%f",base,height);
+(gdb) n
+3
+2
+7   }
+(gdb) n
+main () at p1original.c:22
+22    find_area(b,h,&a);
+(gdb) s
+find_area (base=3, height=2, area=0x7fff79412dd4) at p1original.c:11
+11    *area = 0.5*base*height;
+(gdb) n
+12  }
+(gdb) p area
+$1 = (float *) 0x7fff79412dd4
+(gdb) n
+main () at p1original.c:23
+23    output(b,h,a);
+(gdb) p a
+$2 = 3
+(gdb) s
+output (base=3, height=2, area=3) at p1original.c:16
+16    printf("The area of triangle with dimensions %f and %f is %f",base,height,area);
+(gdb) n
+17  }
+(gdb) n
+main () at p1original.c:24
+24    return 0;
+(gdb) n
+25  }
+(gdb) n
+__libc_start_main (main=0x562393c0081a <main>, argc=1, argv=0x7fff79412ec8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fff79412eb8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 1211] will be killed.
+
+Quit anyway? (y or n) y
